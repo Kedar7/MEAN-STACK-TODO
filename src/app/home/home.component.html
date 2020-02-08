@@ -1,0 +1,82 @@
+<!-- <h1>TODO CRUD Application (MEAN stack)</h1>
+
+
+  <br>
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Todo  list</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs[0]">
+        <td>{{blog.todo}}</td>
+        <td><button  class="btn btn-primary  btn-sm" (click)="updateTodo(blog._id)">Update</button></td>
+        <td><button  class="btn btn-danger  btn-sm" (click)="deleteTodo(blog._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form ngNativeValidate #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="todo['id']">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="todo['name']"
+                    placeholder="Enter  Todo" required>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm()">Reset</button>
+                  <button class="btn btn-custom right" type="submit" >Submit</button>
+                </div>
+              </div>
+              <br>
+              <div class="row col s12">
+                <div class="alert alert-primary"   *ngIf="insertMsg">
+                  Todo successfully inserted
+                </div>
+                <div class="alert alert-primary"   *ngIf="updateMsg">
+                  Todo successfully updated
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7">
+            <div class="card">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Todo list</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let blog of blogs">
+                    <td>{{blog.todo}}</td>
+                    <td><button class="btn btn-primary  btn-sm" (click)="updateTodo(blog)">Update</button></td>
+                    <td><button class="btn btn-danger  btn-sm" (click)="deleteTodo(blog._id)">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
